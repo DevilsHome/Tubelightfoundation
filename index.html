@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Adtile Fixed Nav</title>
+    <meta name="author" content="Adtile">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/style2.css">
+    <script src="js/responsive-nav.js"></script>
+    <style>
+      body{
+        overflow-x: hidden;
+      }
+      /* Home page */
+#slider,
+.wrap,
+.slide-content {
+  margin-top:-2%;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.wrap {
+  position: relative;
+
+}
+
+.slide {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slide1 {
+  background-image: url("images/1.jpg");
+}
+.slide2 {
+  background-image: url("images/2.jpg");
+}
+.slide3 {
+  background-image: url("images/3.jpg");
+}
+
+.slide-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.slide-content span {
+  font-size: 5vw;
+  color: #fff;
+}
+
+.arrow {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  margin-top: -35px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+#arrow-left {
+  border-width: 20px 20px 20px 0;
+  border-color: transparent #fff transparent transparent;
+  left: 0;
+  margin-left: 30px;
+}
+
+#arrow-right {
+  border-width: 20px 0 20px 20px;
+  border-color: transparent transparent transparent #fff;
+  right: 0;
+  margin-right: 30px;
+}
+.slide-content h6{
+  margin-left:20%;
+  margin-right:20%;
+  font-size:1vw;
+  color:white;
+}
+
+
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <a href="#home" class="logo" data-scroll><img src="images/logo.jpg" style="width:10%; height:40px; position:fixed; margin-top:5px;"></a>
+      <nav class="nav-collapse">
+        <ul>
+          <li class="menu-item active"><a href="#home" data-scroll>Home</a></li>
+          <li class="menu-item"><a href="#about" data-scroll>About</a></li>
+          <li class="menu-item"><a href="#projects" data-scroll>Projects</a></li>
+          <li class="menu-item"><a href="#blog" data-scroll>Blog</a></li>
+          <li class="menu-item"><a href="#login" data-scroll>Login</a></li>
+          <li class="menu-item"><a href="http://www.google.com" target="_blank">Google</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="home">
+      <!-- Slideshow container -->
+<div class="wrap">
+  <div id="arrow-left" class="arrow"></div>
+  <div id="slider">
+    <div class="slide slide1">
+      <div class="slide-content">
+        <span>Most Attractive Ngo Template</span>
+        <h6 style="margin-left:20%; ">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.</h6>
+      </div>
+    </div>
+    <div class="slide slide2">
+      <div class="slide-content">
+        <span>Most Attractive Ngo Template/span>
+      </div>
+    </div>
+    <div class="slide slide3">
+      <div class="slide-content">
+        <span>Most Attractive Ngo Template</span>
+      </div>
+    </div>
+  </div>
+  <div id="arrow-right" class="arrow"></div>
+</div>
+<script >
+  let sliderImages = document.querySelectorAll(".slide"),
+  arrowLeft = document.querySelector("#arrow-left"),
+  arrowRight = document.querySelector("#arrow-right"),
+  current = 0;
+
+// Clear all images
+function reset() {
+  for (let i = 0; i < sliderImages.length; i++) {
+    sliderImages[i].style.display = "none";
+  }
+}
+
+// Init slider
+function startSlide() {
+  reset();
+  sliderImages[0].style.display = "block";
+}
+
+// Show prev
+function slideLeft() {
+  reset();
+  sliderImages[current - 1].style.display = "block";
+  current--;
+}
+
+// Show next
+function slideRight() {
+  reset();
+  sliderImages[current + 1].style.display = "block";
+  current++;
+}
+
+// Left arrow click
+arrowLeft.addEventListener("click", function() {
+  if (current === 0) {
+    current = sliderImages.length;
+  }
+  slideLeft();
+});
+
+// Right arrow click
+arrowRight.addEventListener("click", function() {
+  if (current === sliderImages.length - 1) {
+    current = -1;
+  }
+  slideRight();
+});
+
+startSlide();
+
+</script>
+    </section>
+
+    <section id="about">
+       <h1>About</h1>
+    </section>
+
+    <section id="projects">
+      <h1>Projects</h1>
+    </section>
+
+ <section id="blog">
+      <h1>Projects</h1>
+    </section>
+    <section id="login">
+      
+  <div class="container">
+    <div class="img">
+      <img src="img/bg.svg">
+    </div>
+    <div class="login-content">
+      <form action="index.html">
+        <img src="img/avatar.svg">
+        <h2 class="title">Welcome</h2>
+              <div class="input-div one">
+                 <div class="i">
+                    <i class="fas fa-user"></i>
+                 </div>
+                 <div class="div">
+                    <h5>Username</h5>
+                    <input type="text" class="input">
+                 </div>
+              </div>
+              <div class="input-div pass">
+                 <div class="i"> 
+                    <i class="fas fa-lock"></i>
+                 </div>
+                 <div class="div">
+                    <h5>Password</h5>
+                    <input type="password" class="input">
+                 </div>
+              </div>
+              <a href="#">Forgot Password?</a>
+              <input type="submit" class="btn" value="Login">
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/main.js"></script>
+</script>
+  
+    </section>
+
+    <script src="js/fastclick.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/fixed-responsive-nav.js"></script>
+  </body>
+</html>
